@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/loud-silence-75803.mp3-5c038ebcec7ae5fc5403f902232d5ffb.mp3str"
+
+[deps]
+
+source_file="res://audio/loud-silence-75803.mp3"
+dest_files=[ "res://.import/loud-silence-75803.mp3-5c038ebcec7ae5fc5403f902232d5ffb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

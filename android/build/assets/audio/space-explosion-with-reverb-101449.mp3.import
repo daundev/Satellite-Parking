@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/space-explosion-with-reverb-101449.mp3-5cb3ea0fdf80b01644cab64858881afc.mp3str"
+
+[deps]
+
+source_file="res://audio/space-explosion-with-reverb-101449.mp3"
+dest_files=[ "res://.import/space-explosion-with-reverb-101449.mp3-5cb3ea0fdf80b01644cab64858881afc.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

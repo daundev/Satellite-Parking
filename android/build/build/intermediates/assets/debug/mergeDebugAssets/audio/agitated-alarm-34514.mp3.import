@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/agitated-alarm-34514.mp3-d11d49e91e79fcf07d39229da1b45f2c.mp3str"
+
+[deps]
+
+source_file="res://audio/agitated-alarm-34514.mp3"
+dest_files=[ "res://.import/agitated-alarm-34514.mp3-d11d49e91e79fcf07d39229da1b45f2c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

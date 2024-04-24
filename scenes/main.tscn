@@ -1,0 +1,857 @@
+[gd_scene load_steps=50 format=2]
+
+[ext_resource path="res://images/Starfield_06-1024x1024.png" type="Texture" id=1]
+[ext_resource path="res://images/satellites/satellite_A.png" type="Texture" id=2]
+[ext_resource path="res://scenes/rocket.gd" type="Script" id=3]
+[ext_resource path="res://images/planets/1.png" type="Texture" id=4]
+[ext_resource path="res://images/PremadeButtons_Replay.png" type="Texture" id=5]
+[ext_resource path="res://images/effect_yellow.png" type="Texture" id=6]
+[ext_resource path="res://scenes/main.gd" type="Script" id=7]
+[ext_resource path="res://images/fail_form.png" type="Texture" id=8]
+[ext_resource path="res://images/PremadeButtons_Resume.png" type="Texture" id=9]
+[ext_resource path="res://images/Box_Orange_Rounded.png" type="Texture" id=10]
+[ext_resource path="res://images/PremadeButtons_ExitOrange.png" type="Texture" id=11]
+[ext_resource path="res://fonts/Kaph-Regular.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://images/transparentDark25.png" type="Texture" id=13]
+[ext_resource path="res://images/background_completed.png" type="Texture" id=14]
+[ext_resource path="res://admob-lib/admob.gd" type="Script" id=15]
+[ext_resource path="res://audio/space-explosion-with-reverb-101449.mp3" type="AudioStream" id=16]
+[ext_resource path="res://audio/thrusterFire_001.ogg" type="AudioStream" id=17]
+[ext_resource path="res://audio/cute-level-up-2-189851.mp3" type="AudioStream" id=18]
+[ext_resource path="res://audio/short-beep-tone-47916.mp3" type="AudioStream" id=19]
+[ext_resource path="res://audio/loud-silence-75803.mp3" type="AudioStream" id=20]
+[ext_resource path="res://audio/agitated-alarm-34514.mp3" type="AudioStream" id=21]
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 5, 320 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.32, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 20, 24 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "burn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.09, 1 ),
+"update": 0,
+"values": [ Vector2( 0.32, 0 ), Vector2( 0.32, 1.00001 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.09, 1 ),
+"update": 0,
+"values": [ Vector2( 20, 24 ), Vector2( 20, 55.9998 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "stop"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.09, 1 ),
+"update": 0,
+"values": [ Vector2( 20, 55.9998 ), Vector2( 20, 23.9998 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.09, 1 ),
+"update": 0,
+"values": [ Vector2( 0.32, 1.00001 ), Vector2( 0.32, 4.7684e-06 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.32, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "burn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.09, 1 ),
+"update": 0,
+"values": [ Vector2( 0.32, 0 ), Vector2( 0.32, 1.00001 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.09, 1 ),
+"update": 0,
+"values": [ Vector2( -20, 24 ), Vector2( -20, 56 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "stop"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.09, 1 ),
+"update": 0,
+"values": [ Vector2( -20, 56 ), Vector2( -20, 24 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.09, 1 ),
+"update": 0,
+"values": [ Vector2( 0.32, 1.00001 ), Vector2( 0.32, 4.7684e-06 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 20, -16 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "burn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.09, 1 ),
+"update": 0,
+"values": [ Vector2( 0.32, 0 ), Vector2( 0.32, 1.00001 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.09, 1 ),
+"update": 0,
+"values": [ Vector2( 20, -16 ), Vector2( 20, -47 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "stop"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.09, 1 ),
+"update": 0,
+"values": [ Vector2( 20, -47 ), Vector2( 20, -16 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.09, 1 ),
+"update": 0,
+"values": [ Vector2( 0.32, 1.00001 ), Vector2( 0.32, 4.7684e-06 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -20, -16 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "burn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.09, 1 ),
+"update": 0,
+"values": [ Vector2( 0.32, 0 ), Vector2( 0.32, 1.00001 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.09, 1 ),
+"update": 0,
+"values": [ Vector2( -20, -16 ), Vector2( -20, -47 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "stop"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.09, 1 ),
+"update": 0,
+"values": [ Vector2( -20, -47 ), Vector2( -20, -16 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.09, 1 ),
+"update": 0,
+"values": [ Vector2( 0.32, 1.00001 ), Vector2( 0.32, 4.7684e-06 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 6, 22 )
+
+[sub_resource type="Animation" id=17]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "game_over"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.937255, 0.32549, 0.32549, 1 ), Color( 1, 1, 1, 1 ), Color( 0.937255, 0.32549, 0.32549, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "warning"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.929412, 0.956863, 0.470588, 1 ), Color( 1, 1, 1, 1 ), Color( 0.929412, 0.956863, 0.470588, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=26]
+size = 128
+font_data = ExtResource( 12 )
+
+[sub_resource type="Animation" id=22]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "show"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.183011, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "rotate"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=24]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "show"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.183011, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("WinForm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -320 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("WinForm:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "show"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("WinForm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.138696, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -320 ), Vector2( 0, 320 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("WinForm:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "counting"
+length = 5.0
+tracks/0/type = "audio"
+tracks/0/path = NodePath("counting/beep")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 19 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 19 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 19 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 19 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 19 )
+} ],
+"times": PoolRealArray( 0, 1, 2, 3, 4 )
+}
+
+[node name="main" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 0, 640 )
+
+[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 180, 320 )
+texture = ExtResource( 1 )
+
+[node name="wall" type="Node2D" parent="."]
+
+[node name="wall" type="Area2D" parent="wall" groups=["wall"]]
+position = Vector2( 180, 320 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall/wall"]
+visible = false
+position = Vector2( 185, 0 )
+shape = SubResource( 16 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wall/wall"]
+visible = false
+position = Vector2( -185, 0 )
+shape = SubResource( 16 )
+
+[node name="safe_area" type="Area2D" parent="wall" groups=["wall"]]
+position = Vector2( 180, 320 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall/safe_area"]
+visible = false
+scale = Vector2( 36, 1 )
+shape = SubResource( 16 )
+
+[node name="level" type="Node2D" parent="."]
+
+[node name="rocket" type="RigidBody2D" parent="." groups=["rocket"]]
+position = Vector2( 180, 431 )
+input_pickable = true
+gravity_scale = 0.0
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 3 )
+
+[node name="fires" type="Node2D" parent="rocket"]
+
+[node name="right" type="Sprite" parent="rocket/fires"]
+position = Vector2( 20, 24 )
+scale = Vector2( 0.32, 1e-05 )
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rocket/fires/right"]
+anims/RESET = SubResource( 4 )
+anims/burn = SubResource( 5 )
+anims/stop = SubResource( 6 )
+
+[node name="left" type="Sprite" parent="rocket/fires"]
+position = Vector2( -20, 24 )
+scale = Vector2( 0.32, 1e-05 )
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rocket/fires/left"]
+anims/RESET = SubResource( 7 )
+anims/burn = SubResource( 8 )
+anims/stop = SubResource( 9 )
+
+[node name="u_r" type="Sprite" parent="rocket/fires"]
+position = Vector2( 20, -16 )
+rotation = 3.14159
+scale = Vector2( 0.32, 1e-05 )
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rocket/fires/u_r"]
+anims/RESET = SubResource( 10 )
+anims/burn = SubResource( 11 )
+anims/stop = SubResource( 12 )
+
+[node name="u_l" type="Sprite" parent="rocket/fires"]
+position = Vector2( -20, -16 )
+rotation = 3.14159
+scale = Vector2( 0.32, 1e-05 )
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rocket/fires/u_l"]
+anims/RESET = SubResource( 13 )
+anims/burn = SubResource( 14 )
+anims/stop = SubResource( 15 )
+
+[node name="SatelliteA" type="Sprite" parent="rocket"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rocket"]
+position = Vector2( 0, 8 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="rocket"]
+position = Vector2( 20, 4 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="rocket"]
+position = Vector2( -20, 4 )
+shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="rocket"]
+current = true
+limit_left = 0
+limit_right = 360
+limit_smoothed = true
+smoothing_enabled = true
+
+[node name="fire" type="AudioStreamPlayer" parent="rocket"]
+stream = ExtResource( 17 )
+volume_db = -80.0
+autoplay = true
+
+[node name="Timer" type="Timer" parent="rocket/fire"]
+wait_time = 0.05
+autostart = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate"]
+anims/RESET = SubResource( 17 )
+anims/game_over = SubResource( 18 )
+anims/warning = SubResource( 19 )
+
+[node name="on_screen_control" type="Node2D" parent="."]
+
+[node name="down_left" type="TouchScreenButton" parent="on_screen_control"]
+position = Vector2( 40, 520 )
+normal = ExtResource( 13 )
+
+[node name="up_left" type="TouchScreenButton" parent="on_screen_control"]
+position = Vector2( 40, 490 )
+scale = Vector2( 1, -1 )
+normal = ExtResource( 13 )
+
+[node name="down_right" type="TouchScreenButton" parent="on_screen_control"]
+position = Vector2( 240, 520 )
+normal = ExtResource( 13 )
+
+[node name="up_right" type="TouchScreenButton" parent="on_screen_control"]
+position = Vector2( 240, 490 )
+scale = Vector2( 1, -1 )
+normal = ExtResource( 13 )
+
+[node name="win_form" type="Node2D" parent="."]
+position = Vector2( 180, 0 )
+scale = Vector2( 1e-05, 1e-05 )
+
+[node name="WinForm" type="Sprite" parent="win_form"]
+position = Vector2( 0, -57 )
+scale = Vector2( 0.162392, 0.162392 )
+texture = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="win_form/WinForm"]
+margin_left = -523.425
+margin_top = 227.844
+margin_right = 533.575
+margin_bottom = 524.844
+custom_fonts/font = SubResource( 26 )
+text = "NEW PLANET
+UNLOCKED !!"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="win_form"]
+anims/RESET = SubResource( 22 )
+anims/show = SubResource( 23 )
+
+[node name="planet" type="Sprite" parent="win_form"]
+position = Vector2( 0, -97 )
+scale = Vector2( 0.0956374, 0.0956374 )
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="win_form/planet"]
+autoplay = "rotate"
+anims/RESET = SubResource( 20 )
+anims/rotate = SubResource( 21 )
+
+[node name="NextBtn" type="Sprite" parent="win_form"]
+position = Vector2( 0, 126 )
+scale = Vector2( 0.241398, 0.241398 )
+texture = ExtResource( 9 )
+
+[node name="ok" type="TextureButton" parent="win_form/NextBtn"]
+margin_left = -485.0
+margin_top = -145.0
+margin_right = 489.0
+margin_bottom = 153.0
+mouse_default_cursor_shape = 2
+
+[node name="fail_form" type="Node2D" parent="."]
+position = Vector2( 180, 0 )
+scale = Vector2( 1e-05, 1e-05 )
+
+[node name="WinForm" type="Sprite" parent="fail_form"]
+position = Vector2( 0, -107 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="fail_form"]
+anims/RESET = SubResource( 24 )
+anims/show = SubResource( 25 )
+
+[node name="ok" type="Sprite" parent="fail_form"]
+position = Vector2( 0, 84 )
+scale = Vector2( 0.236348, 0.236348 )
+texture = ExtResource( 11 )
+
+[node name="exit" type="TextureButton" parent="fail_form/ok"]
+margin_left = -478.0
+margin_top = -148.0
+margin_right = 487.0
+margin_bottom = 148.0
+mouse_default_cursor_shape = 2
+
+[node name="retry" type="Sprite" parent="fail_form"]
+position = Vector2( 0, -5.99998 )
+scale = Vector2( 0.236348, 0.236348 )
+texture = ExtResource( 5 )
+
+[node name="retry" type="TextureButton" parent="fail_form/retry"]
+margin_left = -478.0
+margin_top = -148.0
+margin_right = 487.0
+margin_bottom = 144.0
+mouse_default_cursor_shape = 2
+
+[node name="completed_form" type="Node2D" parent="."]
+position = Vector2( 180, 0 )
+
+[node name="WinForm" type="Sprite" parent="completed_form"]
+visible = false
+position = Vector2( 0, -320 )
+texture = ExtResource( 14 )
+
+[node name="ok" type="Sprite" parent="completed_form/WinForm"]
+position = Vector2( 2, 218 )
+scale = Vector2( 0.236348, 0.236348 )
+texture = ExtResource( 11 )
+
+[node name="exit" type="TextureButton" parent="completed_form/WinForm/ok"]
+margin_left = -478.109
+margin_top = -143.856
+margin_right = 485.891
+margin_bottom = 144.144
+mouse_default_cursor_shape = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="completed_form"]
+anims/RESET = SubResource( 27 )
+anims/show = SubResource( 28 )
+
+[node name="AdMob" type="Node" parent="."]
+script = ExtResource( 15 )
+is_real = true
+
+[node name="explode" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+
+[node name="win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
+[node name="alarm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+
+[node name="background_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = -17.333
+autoplay = true
+
+[node name="counting" type="AnimationPlayer" parent="."]
+anims/counting = SubResource( 29 )
+
+[node name="beep" type="AudioStreamPlayer" parent="counting"]
+stream = ExtResource( 19 )
+
+[connection signal="body_entered" from="wall/wall" to="." method="_on_wall_body_entered"]
+[connection signal="body_exited" from="wall/wall" to="." method="_on_wall_body_exited"]
+[connection signal="body_exited" from="wall/safe_area" to="." method="_on_safe_area_body_exited"]
+[connection signal="body_entered" from="rocket" to="rocket" method="_on_rocket_body_entered"]
+[connection signal="timeout" from="rocket/fire/Timer" to="rocket" method="_on_Timer_timeout"]
+[connection signal="pressed" from="on_screen_control/down_left" to="rocket" method="_on_down_left_pressed"]
+[connection signal="released" from="on_screen_control/down_left" to="rocket" method="_on_down_left_released"]
+[connection signal="pressed" from="on_screen_control/up_left" to="rocket" method="_on_up_left_pressed"]
+[connection signal="released" from="on_screen_control/up_left" to="rocket" method="_on_up_left_released"]
+[connection signal="pressed" from="on_screen_control/down_right" to="rocket" method="_on_down_right_pressed"]
+[connection signal="released" from="on_screen_control/down_right" to="rocket" method="_on_down_right_released"]
+[connection signal="pressed" from="on_screen_control/up_right" to="rocket" method="_on_up_right_pressed"]
+[connection signal="released" from="on_screen_control/up_right" to="rocket" method="_on_up_right_released"]
+[connection signal="button_up" from="win_form/NextBtn/ok" to="." method="_on_ok_button_up"]
+[connection signal="button_up" from="fail_form/ok/exit" to="." method="_on_exit_button_up"]
+[connection signal="button_up" from="fail_form/retry/retry" to="." method="_on_retry_button_up"]
+[connection signal="button_up" from="completed_form/WinForm/ok/exit" to="." method="_on_exit_button_up"]

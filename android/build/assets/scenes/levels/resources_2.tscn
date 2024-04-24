@@ -1,0 +1,203 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://fonts/Kaph-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://images/planets/2.png" type="Texture" id=2]
+[ext_resource path="res://scenes/objects/meteor_big.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/objects/meteor_small.tscn" type="PackedScene" id=4]
+[ext_resource path="res://images/finish_area.png" type="Texture" id=5]
+[ext_resource path="res://scenes/objects/meteors.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/objects/satellite.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CircleShape2D" id=23]
+radius = 46.0977
+
+[sub_resource type="Animation" id=20]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "rotate"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=24]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("count:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "5" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("count:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("FinishArea:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "autoload"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("FinishArea:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "on_counting"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("count:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "5", "4", "3", "2", "1" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("count:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.9, 1, 1.1, 1.9, 2, 2.1, 2.9, 3, 3.1, 3.9, 4, 4.1, 4.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("FinishArea:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=25]
+size = 32
+font_data = ExtResource( 1 )
+
+[node name="resources" type="Node2D"]
+
+[node name="finish_area" type="Area2D" parent="."]
+position = Vector2( 178, -424 )
+
+[node name="FinishArea" type="Sprite" parent="finish_area"]
+modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="finish_area"]
+shape = SubResource( 23 )
+
+[node name="Earth2" type="Sprite" parent="finish_area"]
+scale = Vector2( 0.0931783, 0.0931783 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="finish_area/Earth2"]
+autoplay = "rotate"
+anims/RESET = SubResource( 20 )
+anims/rotate = SubResource( 21 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="finish_area"]
+autoplay = "autoload"
+anims/RESET = SubResource( 24 )
+anims/autoload = SubResource( 26 )
+anims/on_counting = SubResource( 22 )
+
+[node name="count" type="Label" parent="finish_area"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -64.0
+margin_top = -64.0
+margin_right = 64.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 25 )
+text = "5"
+align = 1
+valign = 1
+
+[node name="objects" type="Node2D" parent="."]
+
+[node name="meteor_big" parent="objects" instance=ExtResource( 3 )]
+position = Vector2( 94, 51 )
+
+[node name="meteor_big2" parent="objects" instance=ExtResource( 3 )]
+position = Vector2( 241, 296 )
+
+[node name="meteor_small2" parent="objects" instance=ExtResource( 4 )]
+position = Vector2( 74, 258 )
+
+[node name="meteor_small3" parent="objects" instance=ExtResource( 4 )]
+position = Vector2( 284, -35 )
+
+[node name="satellite" parent="objects" instance=ExtResource( 7 )]
+position = Vector2( 65, -258 )
+
+[node name="meteors" parent="objects" instance=ExtResource( 6 )]
+
+[node name="meteors2" parent="objects" instance=ExtResource( 6 )]
+position = Vector2( -120, -268 )

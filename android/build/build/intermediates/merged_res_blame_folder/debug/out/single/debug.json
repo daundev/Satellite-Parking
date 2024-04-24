@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.godot.game-merged_res-28:/drawable_splash_drawable.xml.flat",
+        "source": "com.godot.game-build-29:/drawable/splash_drawable.xml"
+    },
+    {
+        "merged": "com.godot.game-merged_res-28:/drawable-nodpi_splash.png.flat",
+        "source": "com.godot.game-build-29:/drawable-nodpi/splash.png"
+    },
+    {
+        "merged": "com.godot.game-merged_res-28:/drawable-nodpi_splash_bg_color.png.flat",
+        "source": "com.godot.game-build-29:/drawable-nodpi/splash_bg_color.png"
+    }
+]

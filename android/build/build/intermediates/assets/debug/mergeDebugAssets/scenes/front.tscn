@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://images/planets/shadow.png" type="Texture" id=1]
+[ext_resource path="res://images/PremadeButtons_Resume.png" type="Texture" id=2]
+[ext_resource path="res://images/title.png" type="Texture" id=3]
+[ext_resource path="res://images/Starfield_06-1024x1024.png" type="Texture" id=4]
+[ext_resource path="res://scenes/front.gd" type="Script" id=5]
+[ext_resource path="res://images/PremadeButtons_ExitRed.png" type="Texture" id=6]
+[ext_resource path="res://images/about.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "rotate"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[node name="front" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="BackgroundFront" type="Sprite" parent="."]
+position = Vector2( 180, 320 )
+texture = ExtResource( 4 )
+
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( 180, 147 )
+texture = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Shadow"]
+autoplay = "rotate"
+anims/RESET = SubResource( 1 )
+anims/rotate = SubResource( 2 )
+
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 180, 150 )
+texture = ExtResource( 3 )
+
+[node name="resume" type="Sprite" parent="."]
+position = Vector2( 180, 386 )
+scale = Vector2( 0.236348, 0.236348 )
+texture = ExtResource( 2 )
+
+[node name="start" type="TextureButton" parent="resume"]
+margin_left = -487.0
+margin_top = -140.0
+margin_right = 491.0
+margin_bottom = 144.0
+mouse_default_cursor_shape = 2
+
+[node name="about" type="Sprite" parent="."]
+position = Vector2( 180, 474 )
+scale = Vector2( 0.236348, 0.236348 )
+texture = ExtResource( 7 )
+
+[node name="about" type="TextureButton" parent="about"]
+margin_left = -487.0
+margin_top = -140.0
+margin_right = 491.0
+margin_bottom = 144.0
+mouse_default_cursor_shape = 2
+
+[node name="exit" type="Sprite" parent="."]
+position = Vector2( 180, 560 )
+scale = Vector2( 0.236348, 0.236348 )
+texture = ExtResource( 6 )
+
+[node name="exit" type="TextureButton" parent="exit"]
+margin_left = -487.0
+margin_top = -140.0
+margin_right = 491.0
+margin_bottom = 144.0
+mouse_default_cursor_shape = 2
+
+[connection signal="button_up" from="resume/start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="about/about" to="." method="_on_about_button_up"]
+[connection signal="button_up" from="exit/exit" to="." method="_on_exit_button_up"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/cute-level-up-2-189851.mp3-4bd26605a73ca8e694c4e91fbe3cca6f.mp3str"
+
+[deps]
+
+source_file="res://audio/cute-level-up-2-189851.mp3"
+dest_files=[ "res://.import/cute-level-up-2-189851.mp3-4bd26605a73ca8e694c4e91fbe3cca6f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
