@@ -29,3 +29,12 @@ This game was made with Godot (still using version 3.5.3) and GDScript, created 
 ## License
 
 No License
+
+
+### Become a tester!
+
+On the other hand, I also published this game on the Play Store, but to be able to do this, it takes 20 people to download it, if you don't mind, you can help me in the following way:
+
+1. Join this group (https://groups.google.com/g/daungamesgroup) so you will be able to access the game in Play Store
+2. Download this game in Play Store (https://play.google.com/store/apps/details?id=org.godotengine.satelliteparking)
+3. Done! It may take only 14 days and i will be able to make this game live in Play Store
